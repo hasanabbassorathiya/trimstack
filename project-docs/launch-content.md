@@ -3,6 +3,8 @@
 Status: DRAFTED for the launch calendar (Mon Sep 21 – Fri Oct 2, 2026). Not yet scheduled or posted.
 Governed by: `project-docs/brand-guidelines.md` (voice, terminology, CAN/CANNOT claims) and `project-docs/launch-plan.md` (calendar, research-first positioning).
 
+Pre-flight reconciled 2026-09-03: repo URL = https://github.com/hasanabbassorathiya/trimstack (private — make public on launch day if the Show HN build-in-public framing requires it). Launch date 2026-09-25 per sprint plan. All `[repo URL]` placeholders resolve to that URL. TAM 90 is the itch-score market-size dimension (0-100 scale; severity/whitespace/frequency are 0-10) — confirm phrasing with PM before quoting externally.
+
 ## House rules (apply to every asset below)
 
 - Banned words and same-family variants: Elevate, Seamless, Unleash, Next-Gen, Supercharge, and hype of the same family (revolutionary, effortless, unlock, game-changing). Plain verbs only: see, flag, resolve, export.
