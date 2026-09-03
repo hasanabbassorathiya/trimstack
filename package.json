@@ -10,6 +10,9 @@
   "engines": {
     "node": ">=20"
   },
+  "devDependencies": {
+    "@playwright/test": "^1.55.0"
+  },
   "scripts": {
     "dev:server": "npm run dev -w server",
     "dev:web": "npm run dev -w web",

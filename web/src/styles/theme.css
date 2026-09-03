@@ -114,9 +114,27 @@ input[type="date"] {
   animation: ts-pulse 2s ease-in-out infinite;
 }
 
+/* Row cascade — alert/table rows stagger in, 40ms steps, capped at 10 rows */
+@keyframes ts-row-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+.row-cascade {
+  animation: ts-row-in 0.3s var(--ease-out-strong) both;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .skeleton,
   .analysis-running {
+    animation: none;
+  }
+  .row-cascade {
     animation: none;
   }
   * {
