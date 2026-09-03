@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>TrimStack</title>
+    <script>
+      // FOUC prevention — resolve theme before first paint (frontend-design-spec §2)
+      (function () {
+        var theme;
+        try {
+          theme = localStorage.getItem("trimstack-theme") || "system";
+        } catch (e) {
+          theme = "system";
+        }
+        var resolved =
+          theme === "system"
+            ? window.matchMedia("(prefers-color-scheme: dark)").matches
+              ? "dark"
+              : "light"
+            : theme;
+        document.documentElement.classList.toggle("dark", resolved === "dark");
+      })();
+    </script>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

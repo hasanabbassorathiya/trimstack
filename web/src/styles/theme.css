@@ -1,0 +1,126 @@
+@import "tailwindcss";
+
+/* Class-based dark mode (Tailwind v4 official pattern) */
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Raw theme variables — light defaults, .dark overrides */
+:root {
+  --ts-canvas: #F6F7F8;
+  --ts-surface: #FFFFFF;
+  --ts-text: #1B1E23;
+  --ts-text-muted: #5F6570;
+  --ts-border: #E4E6EA;
+  --ts-accent: #087A52;
+  --ts-accent-text: #FFFFFF;
+  --ts-waste: #8A5A00;
+  --ts-risk: #9A4A08;
+  --ts-neutral: #6E7480;
+  --ts-skeleton: #E9EBEE;
+}
+.dark {
+  --ts-canvas: #111317;
+  --ts-surface: #191C21;
+  --ts-text: #E8EAED;
+  --ts-text-muted: #A7ADBA;
+  --ts-border: #2A2E35;
+  --ts-accent: #2DB98A;
+  --ts-accent-text: #0B1512;
+  --ts-waste: #E0A93E;
+  --ts-risk: #E0862E;
+  --ts-neutral: #9BA1AC;
+  --ts-skeleton: #232830;
+}
+
+/* Tailwind theme mapping — utilities: bg-canvas, text-ink, border-hairline, etc. */
+@theme inline {
+  --color-canvas: var(--ts-canvas);
+  --color-surface: var(--ts-surface);
+  --color-ink: var(--ts-text);
+  --color-muted: var(--ts-text-muted);
+  --color-hairline: var(--ts-border);
+  --color-accent: var(--ts-accent);
+  --color-on-accent: var(--ts-accent-text);
+  --color-waste: var(--ts-waste);
+  --color-risk: var(--ts-risk);
+  --color-neutralbadge: var(--ts-neutral);
+  --color-skeleton: var(--ts-skeleton);
+
+  --font-sans: "Geist Variable", "Geist", ui-sans-serif, sans-serif;
+  --font-mono: "Geist Mono Variable", "Geist Mono", ui-monospace, monospace;
+
+  --radius-card: 1rem;
+  --shadow-whisper: 0 1px 2px rgb(27 30 35 / 0.04), 0 4px 16px rgb(27 30 35 / 0.05);
+  --ease-spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+  --ease-out-strong: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Global base */
+html {
+  scroll-behavior: smooth;
+}
+body {
+  background: var(--ts-canvas);
+  color: var(--ts-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Tabular mono numerals — every number, currency, date, seat count, percentage */
+.num,
+input[type="number"],
+input[type="date"] {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Focus visibility — never remove */
+:focus-visible {
+  outline: 2px solid var(--ts-accent);
+  outline-offset: 2px;
+}
+
+/* Skeleton shimmer */
+@keyframes ts-shimmer {
+  0% {
+    background-position: -400px 0;
+  }
+  100% {
+    background-position: 400px 0;
+  }
+}
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    var(--ts-skeleton) 25%,
+    color-mix(in srgb, var(--ts-skeleton) 60%, var(--ts-surface)) 50%,
+    var(--ts-skeleton) 75%
+  );
+  background-size: 800px 100%;
+  animation: ts-shimmer 1.6s linear infinite;
+  border-radius: 6px;
+}
+
+/* Analysis-in-flight pulse — the ONLY perpetual micro-loop */
+@keyframes ts-pulse {
+  0%,
+  100% {
+    box-shadow: 0 0 0 0 color-mix(in srgb, var(--ts-accent) 35%, transparent);
+  }
+  50% {
+    box-shadow: 0 0 0 6px transparent;
+  }
+}
+.analysis-running {
+  animation: ts-pulse 2s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skeleton,
+  .analysis-running {
+    animation: none;
+  }
+  * {
+    transition-duration: 0.01ms !important;
+    animation-duration: 0.01ms !important;
+  }
+}

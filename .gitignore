@@ -1,0 +1,19 @@
+node_modules/
+dist/
+coverage/
+
+# Local databases (runtime state, never committed)
+server/data/*.sqlite
+server/data/*.sqlite-journal
+server/data/*.sqlite-wal
+server/data/*.sqlite-shm
+
+# QA evidence (regenerated per capture run; archived with the phase that certifies it)
+qa-screenshots/
+test-results/
+playwright-report/
+
+# Env & OS
+.env
+*.log
+.DS_Store
