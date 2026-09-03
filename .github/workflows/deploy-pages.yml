@@ -32,6 +32,8 @@ jobs:
         run: npm run build -w server
 
       - name: Build demo snapshot from seeded database
+        env:
+          API_URL: http://localhost:3999
         run: |
           # Run the API briefly to seed a fresh database, then snapshot it.
           DB_PATH="$RUNNER_TEMP/demo.sqlite" PORT=3999 node server/dist/index.js & 
