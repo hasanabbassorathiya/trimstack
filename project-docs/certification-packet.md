@@ -26,11 +26,12 @@
 **GO for launch (2026-09-25 target).** All 11 checklist rows PASS on linked evidence. The product delivers the spec's four success criteria: 60-second value moment (bootstrap analysis + metric strip), penny-exact engine (39 unit tests), clean CSV (RFC 4180 + Excel-safe BOM/CRLF), and every user journey has screenshot + machine-readable proof (33/33 E2E, 32/32 image verification).
 
 **Honest limitations (disclosed, not blocking):**
-1. Single-machine local run (macOS, system Chrome) — no cloud/staging environment in v1 scope; Dockerfile + CI exist but are unexercised on a hosted runner.
+1. Single-machine local run (macOS, system Chrome) — CI (GitHub Actions, ubuntu runner) exists and mirrors the same 4 gates; first two CI runs failed on a lockfile desync (Playwright installed --no-save), fixed 2026-09-03 — current run status recorded in the pipeline report. Dockerfile remains unexercised on a hosted platform (local build only).
 2. No screen-reader (VoiceOver/NVDA) pass — patterns implemented, full AT audit deferred.
 3. Screenshots verified programmatically (dimensions/luminance/accent), not by human eyeballs this session.
 4. Demo data is seeded (24 realistic subs) — no real customer data exists yet; launch plan discloses this on every channel (brand honesty rules).
 5. Subagent infra failures consumed ~5h wall time; both build waves were completed by orchestrator manual fallback with identical gate discipline (all gates green, evidence identical).
+6. Growth-doc calendars (launch-content.md, social-plan.md) were drafted by agents without local-file access and initially contradicted the launch plan (dates, sequence order, one-post-per-day violations, and four posts describing unshipped features). Fully reconciled to launch-plan.md on 2026-09-03: B1 Sep 22 + B2 Sep 23 pre-launch, Sep 24 engagement-only, launch day Sep 25, A1–A5 post-launch Sep 28–Oct 2, B3–B5 + M-posts to post-launch pool.
 
 **Operational evidence (2026-09-03):**
 - API p95: dashboard-summary 6.0ms, subscriptions 2.2ms (spec NFR <200ms) — curl 5-sample max.
