@@ -16,6 +16,7 @@ export default defineConfig({
   use: {
     baseURL: process.env.BASE_URL ?? "http://localhost:5173",
     trace: "retain-on-failure",
+    channel: "chrome", // system Chrome — avoids the Playwright CDN download
   },
   projects: [
     // Functional specs + evidence captures

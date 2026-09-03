@@ -1,7 +1,8 @@
 import { test, expect } from "@playwright/test";
 
-// F1 — registry table: renders seeded subscriptions, server-side search by
-// name/vendor, server-side sort by cost and renewal date with aria-sort.
+// F1 — registry table: seeded rows render, server-side search by name/vendor,
+// server-side sort by cost with aria-sort. Desktop project only (mobile renders
+// stacked cards, not the table).
 
 test("subscriptions table: search filters and cost sort toggles", async ({ page }) => {
   await page.goto("/");
@@ -17,9 +18,10 @@ test("subscriptions table: search filters and cost sort toggles", async ({ page 
   await expect
     .poll(async () => await rows.count(), { timeout: 5_000 })
     .toBeLessThan(initialCount);
+  expect((await page.getByText(/figma/i).count())).toBeGreaterThan(0);
   await search.fill("");
+  await expect.poll(async () => await rows.count(), { timeout: 5_000 }).toBe(initialCount);
 
-  // Find the cost column index dynamically from its header
   const costIndex = await page
     .locator("th")
     .filter({ hasText: /cost/i })
@@ -27,11 +29,13 @@ test("subscriptions table: search filters and cost sort toggles", async ({ page 
     .evaluate((th) => th.cellIndex);
 
   const readCosts = async (): Promise<number[]> =>
-    rows.evaluateAll((trs, idx) =>
-      trs
-        .map((tr) => tr.cells[idx]?.textContent ?? "")
-        .map((t) => Number(t.replace(/[^0-9.]/g, "")) || 0)
-        .filter((n) => n > 0),
+    rows.evaluateAll(
+      (trs, idx) =>
+        trs
+          .map((tr) => (tr as HTMLTableRowElement).cells[idx as number]?.textContent ?? "")
+          .map((t) => Number(t.replace(/[^0-9.]/g, "")) || 0)
+          .filter((n) => n > 0),
+      costIndex,
     );
 
   const costHeader = page
@@ -39,10 +43,13 @@ test("subscriptions table: search filters and cost sort toggles", async ({ page 
     .filter({ hasText: /cost/i })
     .getByRole("button");
 
-  // First click: sorted one direction; second click: reversed
+  // First click sorts; wait for the refetch to settle before reading
   await costHeader.click();
+  await page.waitForTimeout(600);
   const first = await readCosts();
+
   await costHeader.click();
+  await page.waitForTimeout(600);
   const second = await readCosts();
 
   const isAsc = (a: number[]) => a.every((v, i) => i === 0 || a[i - 1] <= v);
@@ -51,7 +58,6 @@ test("subscriptions table: search filters and cost sort toggles", async ({ page 
   expect(isAsc(second) || isDesc(second)).toBe(true);
   expect(isAsc(first)).not.toBe(isAsc(second)); // direction toggled
 
-  // aria-sort reflects state on the sortable header cell
   const sortState = await page
     .locator("th")
     .filter({ hasText: /cost/i })
@@ -69,7 +75,8 @@ test("renewal date header is sortable", async ({ page }) => {
   await renewalHeader.click();
   const rows = page.locator("table tbody tr");
   await expect(rows.first()).toBeVisible();
-  // Toggling again must not error and must keep the table populated
+  await page.waitForTimeout(600);
   await renewalHeader.click();
+  await page.waitForTimeout(600);
   expect(await rows.count()).toBeGreaterThanOrEqual(20);
 });

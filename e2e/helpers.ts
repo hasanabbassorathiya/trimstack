@@ -10,20 +10,22 @@ const futureDate = (days: number): string =>
 
 // Deterministic waste: 40 provisioned / 10 active seats at $240/mo
 // → inactive-seats flag with savings 240 x 30/40 = $180.00 exactly.
-// Renewal 90 days out (no renewal/trial flags); unique department + "other"
-// category keeps duplicate-spend behavior out of the assertion path.
+// Category "dev" + department "Engineering" matches ALL seeded dev subs
+// (Jira, GitHub, Sentry are all Engineering) → same-department group →
+// duplicate-spend detection never fires → exactly ONE flag per QA sub.
+// Renewal 90 days out avoids renewal/trial flags.
 export async function createWasteSubscription(request: APIRequestContext) {
   const res = await request.post(`${BASE}/api/subscriptions`, {
     data: {
       name: `QA Waste Tool ${Date.now()}`,
       vendor: "QA Vendor",
-      category: "other",
+      category: "dev",
       monthlyCost: 240,
       billingCycle: "monthly",
       renewalDate: futureDate(90),
       seatsProvisioned: 40,
       seatsActive: 10,
-      owningDepartment: "QA Department",
+      owningDepartment: "Engineering",
       status: "active",
       notes: "created by E2E self-cleaning helper",
     },
@@ -47,3 +49,14 @@ export function parseCurrency(text: string): number {
   if (!match) throw new Error(`no currency value in "${text}"`);
   return Number(match[1]);
 }
+
+// Visible-only locator for an open-alert row by subscription name.
+// The mobile stacked cards render hidden duplicates at <768px, so plain
+// text locators match hidden elements — scope to the alerts panel and
+// filter to visible rows.
+export const alertRowFor = (page: import("@playwright/test").Page, name: string) =>
+  page
+    .locator('section[aria-label="Optimization alerts"] li')
+    .filter({ hasText: name })
+    .filter({ has: page.getByRole("button", { name: /^resolve$/i }) })
+    .first();
