@@ -3,8 +3,10 @@ import { Header, type View } from "./components/Header";
 import { Dashboard } from "./pages/Dashboard";
 import { Landing } from "./pages/Landing";
 
+const BASE_PATH = import.meta.env.BASE_URL.replace(/\/$/, "");
+
 function viewFromPath(pathname: string): View {
-  return pathname === "/landing" ? "landing" : "dashboard";
+  return pathname.replace(/\/$/, "").endsWith("/landing") ? "landing" : "dashboard";
 }
 
 export default function App() {
@@ -18,9 +20,10 @@ export default function App() {
   }, []);
 
   const navigate = useCallback((next: View) => {
-    const path = next === "landing" ? "/landing" : "/";
-    if (window.location.pathname !== path) {
-      window.history.pushState({}, "", path);
+    const path = `${BASE_PATH}${next === "landing" ? "/landing" : "/"}`;
+    const target = path === "/" ? "/" : path;
+    if (!window.location.pathname.replace(/\/$/, "").endsWith(target.replace(/\/$/, ""))) {
+      window.history.pushState({}, "", target);
     }
     setView(next);
   }, []);

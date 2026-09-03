@@ -1,0 +1,67 @@
+name: Deploy demo to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 26
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build server
+        run: npm run build -w server
+
+      - name: Build demo snapshot from seeded database
+        run: |
+          # Run the API briefly to seed a fresh database, then snapshot it.
+          DB_PATH="$RUNNER_TEMP/demo.sqlite" PORT=3999 node server/dist/index.js & 
+          API_PID=$!
+          for i in $(seq 1 30); do
+            curl -sf http://localhost:3999/api/health && break
+            sleep 1
+          done
+          node scripts/build-demo-data.mjs
+          kill $API_PID
+
+      - name: Build web (demo mode)
+        run: npm run build -w web
+        env:
+          VITE_DEMO: "1"
+          BASE_URL: /trimstack/
+
+      - name: Copy snapshot into dist
+        run: cp -r web/public/demo web/dist/demo
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web/dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

@@ -4,7 +4,7 @@ import { deleteSubscription } from "../api/client";
 import { useDashboardData } from "../hooks/useDashboardData";
 import { useAlerts } from "../hooks/useAlerts";
 import { useSubscriptions } from "../hooks/useSubscriptions";
-import { runAnalysis, dismissAlert, resolveAlert, getAlertsCsvUrl } from "../api/client";
+import { runAnalysis, dismissAlert, resolveAlert, downloadAlertsCsv, isDemoMode } from "../api/client";
 import { MetricCard } from "../components/MetricCard";
 import { SubscriptionsTable } from "../components/SubscriptionsTable";
 import { SubscriptionForm } from "../components/SubscriptionForm";
@@ -32,6 +32,7 @@ export function Dashboard() {
   const [deleteTarget, setDeleteTarget] = useState<Subscription | null>(null);
   const [resolveTarget, setResolveTarget] = useState<Alert | null>(null);
   const [analysisRunning, setAnalysisRunning] = useState(false);
+  const demo = isDemoMode();
 
   const refreshAll = async () => {
     await Promise.all([refetchDashboard(), refetchAlerts(), subs.refetch()]);
@@ -118,7 +119,7 @@ export function Dashboard() {
             onRunAnalysis={() => void onRunAnalysis()}
             onResolve={(a) => setResolveTarget(a)}
             onDismiss={(a) => void onDismiss(a)}
-            onExport={() => window.location.assign(getAlertsCsvUrl())}
+            onExport={() => void downloadAlertsCsv(alerts)}
             hasOpenAlerts={alerts.length > 0}
           />
         </div>
@@ -127,6 +128,7 @@ export function Dashboard() {
 
       {/* Subscriptions registry */}
       <SubscriptionsTable
+        readOnly={demo}
         subscriptions={subs.subscriptions}
         loading={subs.loading}
         error={subs.error}

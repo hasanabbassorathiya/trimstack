@@ -14,6 +14,7 @@ interface SubscriptionsTableProps {
   onAdd: () => void;
   onEdit: (sub: Subscription) => void;
   onDelete: (sub: Subscription) => void;
+  readOnly?: boolean;
 }
 
 const usd = new Intl.NumberFormat("en-US", { style: "currency", currency: "USD" });
@@ -74,6 +75,7 @@ export function SubscriptionsTable({
   onAdd,
   onEdit,
   onDelete,
+  readOnly = false,
 }: SubscriptionsTableProps) {
   return (
     <section aria-label="Subscriptions">
@@ -88,15 +90,24 @@ export function SubscriptionsTable({
             aria-label="Search subscriptions by name or vendor"
             className="min-h-11 w-52 rounded-lg border border-hairline bg-surface px-3 text-sm text-ink placeholder:text-muted"
           />
-          <button
-            type="button"
-            onClick={onAdd}
-            className="min-h-11 rounded-lg bg-accent px-4 text-sm font-medium text-on-accent transition active:translate-y-[-1px] active:scale-[0.98]"
-          >
-            Add subscription
-          </button>
+          {!readOnly && (
+            <button
+              type="button"
+              onClick={onAdd}
+              className="min-h-11 rounded-lg bg-accent px-4 text-sm font-medium text-on-accent transition active:translate-y-[-1px] active:scale-[0.98]"
+            >
+              Add subscription
+            </button>
+          )}
         </div>
       </div>
+
+      {readOnly && (
+        <p className="mt-3 rounded-lg border border-hairline bg-surface p-3 text-sm text-muted">
+          Read-only demo: a static snapshot of the seeded demo company. Run the app locally to add
+          or edit subscriptions.
+        </p>
+      )}
 
       {error && (
         <p role="alert" className="mt-4 rounded-lg border border-hairline bg-surface p-4 text-sm text-risk">
@@ -167,24 +178,28 @@ export function SubscriptionsTable({
                       <StatusBadge status={sub.status} />
                     </td>
                     <td className="p-3 text-right">
-                      <div className="flex justify-end gap-2">
-                        <button
-                          type="button"
-                          onClick={() => onEdit(sub)}
-                          aria-label={`Edit ${sub.name}`}
-                          className="min-h-11 rounded-lg border border-hairline px-3 text-xs text-ink hover:border-accent"
-                        >
-                          Edit
-                        </button>
-                        <button
-                          type="button"
-                          onClick={() => onDelete(sub)}
-                          aria-label={`Delete ${sub.name}`}
-                          className="min-h-11 rounded-lg border border-hairline px-3 text-xs text-risk hover:border-risk"
-                        >
-                          Delete
-                        </button>
-                      </div>
+                      {!readOnly ? (
+                        <div className="flex justify-end gap-2">
+                          <button
+                            type="button"
+                            onClick={() => onEdit(sub)}
+                            aria-label={`Edit ${sub.name}`}
+                            className="min-h-11 rounded-lg border border-hairline px-3 text-xs text-ink hover:border-accent"
+                          >
+                            Edit
+                          </button>
+                          <button
+                            type="button"
+                            onClick={() => onDelete(sub)}
+                            aria-label={`Delete ${sub.name}`}
+                            className="min-h-11 rounded-lg border border-hairline px-3 text-xs text-risk hover:border-risk"
+                          >
+                            Delete
+                          </button>
+                        </div>
+                      ) : (
+                        <span className="text-xs text-muted">—</span>
+                      )}
                     </td>
                   </tr>
                 ))}
@@ -224,24 +239,26 @@ export function SubscriptionsTable({
                 {sub.notes && (
                   <p className="mt-3 line-clamp-2 text-sm text-muted">{sub.notes}</p>
                 )}
-                <div className="mt-3 flex justify-end gap-2">
-                  <button
-                    type="button"
-                    onClick={() => onEdit(sub)}
-                    aria-label={`Edit ${sub.name}`}
-                    className="min-h-11 rounded-lg border border-hairline px-3 text-xs text-ink"
-                  >
-                    Edit
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() => onDelete(sub)}
-                    aria-label={`Delete ${sub.name}`}
-                    className="min-h-11 rounded-lg border border-hairline px-3 text-xs text-risk"
-                  >
-                    Delete
-                  </button>
-                </div>
+                {!readOnly && (
+                  <div className="mt-3 flex justify-end gap-2">
+                    <button
+                      type="button"
+                      onClick={() => onEdit(sub)}
+                      aria-label={`Edit ${sub.name}`}
+                      className="min-h-11 rounded-lg border border-hairline px-3 text-xs text-ink"
+                    >
+                      Edit
+                    </button>
+                    <button
+                      type="button"
+                      onClick={() => onDelete(sub)}
+                      aria-label={`Delete ${sub.name}`}
+                      className="min-h-11 rounded-lg border border-hairline px-3 text-xs text-risk"
+                    >
+                      Delete
+                    </button>
+                  </div>
+                )}
               </li>
             ))}
           </ul>
