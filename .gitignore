@@ -1,6 +1,7 @@
 node_modules/
 dist/
 coverage/
+*.tsbuildinfo
 
 # Local databases (runtime state, never committed)
 server/data/*.sqlite
