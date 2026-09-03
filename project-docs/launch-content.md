@@ -3,7 +3,7 @@
 Status: DRAFTED for the launch calendar (Mon Sep 21 – Fri Oct 2, 2026). Not yet scheduled or posted.
 Governed by: `project-docs/brand-guidelines.md` (voice, terminology, CAN/CANNOT claims) and `project-docs/launch-plan.md` (calendar, research-first positioning).
 
-Pre-flight reconciled 2026-09-03: repo URL = https://github.com/hasanabbassorathiya/trimstack (private — make public on launch day if the Show HN build-in-public framing requires it). Launch date 2026-09-25 per sprint plan. All `[repo URL]` placeholders resolve to that URL. TAM 90 is the itch-score market-size dimension (0-100 scale; severity/whitespace/frequency are 0-10) — confirm phrasing with PM before quoting externally.
+Pre-flight reconciled 2026-09-03: repo URL = https://github.com/hasanabbassorathiya/trimstack — **made PUBLIC 2026-09-03** (user-approved) to host the GitHub Pages demo at https://hasanabbassorathiya.github.io/trimstack/. All `[repo URL]` placeholders resolve to that URL; demo links resolve to the Pages URL. Launch date 2026-09-25 per sprint plan. TAM 90 is the itch-score market-size dimension (0-100 scale; severity/whitespace/frequency are 0-10) — confirm phrasing with PM before quoting externally.
 
 ## House rules (apply to every asset below)
 
