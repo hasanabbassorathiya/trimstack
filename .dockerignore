@@ -1,0 +1,29 @@
+# Syntax: <build-stage-path> <runtime-path>
+node_modules
+server/node_modules
+web/node_modules
+dist
+server/dist
+web/dist
+*.tsbuildinfo
+
+# Never bake runtime state or evidence into images
+server/data
+qa-screenshots
+test-results
+playwright-report
+e2e
+.github
+project-docs
+project-specs
+project-tasks
+
+# Local-only
+.env
+.git
+.gitignore
+Dockerfile
+.dockerignore
+*.log
+.DS_Store
+README.md
