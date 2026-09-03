@@ -5,12 +5,12 @@ Status: drafts only. Nothing in this file is scheduled or posted.
 
 ## 0. Assumptions and pre-publish verification
 
-- Calendar anchored to Mon Sep 7 – Sun Sep 20, 2026. If launch-plan.md dates differ, shift every row by the same offset.
-- Show HN set for Tue Sep 8, 8:00 AM ET. Confirm against launch plan before locking.
+- Calendar anchored to Mon Sep 21 – Fri Oct 2, 2026 (reconciled 2026-09-03 against launch-plan.md: launch day is Fri Sep 25, 08:00–10:00 ET Show HN window; Sequence A runs Sep 21–25, Sequence B Sep 28–Oct 2). The original draft assumed Sep 7–8; all rows below use the reconciled dates.
+- Show HN: **Fri Sep 25, 08:00–10:00 ET** (per launch plan — one shot, no resubmission ever).
 - All time slots and cadence windows are assumptions to test, not facts. Founder timezone assumed US Eastern — confirm; shift all slots if different.
-- Voice drafted to the brief's rules (calm, numerate, no urgency theater, no emojis, no pitch in comments). Before any post goes live: run copy through brand-guidelines.md banned-words list, terminology locks, and CAN/CANNOT claims. This draft was prepared without direct access to that file — re-verify every asset.
+- Reconciled 2026-09-03: repo URL is https://github.com/hasanabbassorathiya/trimstack (private; make public on launch day if build-in-public framing requires). Demo link = the deployed dashboard URL. Voice rules verified against brand-guidelines.md house rules (calm, numerate, no urgency theater, no emojis, no pitch in comments). Run final copy through the banned-words list before publishing.
 - `{{placeholder}}` = insert the real number or fact before publishing. Never publish a placeholder, an estimate, or a rounded guess.
-- Assets A1–A5 (demo story) and B1–B5 (build-in-public) are drafted in the Content Creator's parallel sequence file. Pull final copy from there; this plan references them by ID only.
+- Assets A1–A5 (demo story) and B1–B5 (build-in-public) are drafted in launch-content.md. Pull final copy from there; this plan references them by ID only.
 
 ## 1. Channel operating plan (LinkedIn primary)
 
@@ -69,18 +69,18 @@ Templates (adjust to the specific post; never paste verbatim twice in one day):
 
 ## 3. Supporting micro-sequence (10 standalone posts)
 
-Not part of the A/B sequences. Odd = problem-observation, even = build-log. Each ≤60 words, one idea, hook first. Replace `{{n}}` with real numbers only.
+Not part of the A/B sequences. Odd = problem-observation, even = build-log. Each ≤60 words, one idea, hook first. POST-LAUNCH POOL (reconciled 2026-09-03): the one-post-per-day rule keeps these out of launch weeks — they run sprint 4 onward, Tue/Thu 7:45 AM slots, starting Tue Oct 6. Content corrected to shipped product facts only (F1 registry, F2 flags incl. upcoming-renewal, F3 resolve/dismiss, F5 CSV export). No roadmap promises.
 
-- **M1 (Mon Sep 7, problem).** Nobody in the company knows the full SaaS vendor list. Finance knows the big contracts. IT knows the tools it provisioned. Each department knows its own. The complete list exists nowhere. That is an inventory problem before it is a tooling problem — and it surfaces at renewal time. #FPandA #SaaSManagement
-- **M2 (Tue Sep 8, build).** Build log, launch day. The demo went up this morning with clearly labeled synthetic data — a fictional {{n}}-person company and its subscription list. The demo exists to show the workflow: find a renewal, see the cost, see the owner. If you try it, the most useful thing you can tell us is what is missing. #BuildInPublic
-- **M3 (Wed Sep 9, problem).** A renewal gotcha worth an hour: notice-period clauses. Many contracts auto-renew unless you notify 60 or 90 days ahead — miss the window and a negotiation becomes a payment. Pull the next two quarters of renewals and check each notice period. That hour is the cheapest audit in finance. #MonthEnd
-- **M4 (Thu Sep 10, build).** Build log: we cut auto-renewal alerts from the MVP. Alerts without a complete vendor list are noise — you cannot alert on inventory you do not have. So the first feature is unglamorous: one row per subscription, with cost, owner, and renewal date. Alerts come after the list is real. #BuildInPublic
-- **M5 (Fri Sep 11, problem).** A quiet SaaS waste pattern: the tool a department bought, the department then reorganized, and nobody turned the tool off. The subscription outlives the team. If you have reorganized in the past two years, there is likely at least one of these in your stack. Not expensive — just permanent. #SaaSManagement
-- **M6 (Mon Sep 14, build).** Build log: the demo dataset took longer than the dashboard. To be useful it had to look like a real company — duplicate tools across teams, one expired card, a renewal that auto-renewed last quarter. Designing the mess taught us more about the workflow than the UI did. #BuildInPublic
-- **M7 (Tue Sep 15, problem).** Seat math worth doing quarterly: licenses held versus people in the role. Per-seat pricing drifts when teams change — you pay for the headcount you had, not the headcount you have. Licenses per tool joined against an HR export is one spreadsheet of work, and the gap is the cheapest savings in the stack. #FPandA
-- **M8 (Wed Sep 16, build).** Build log: we built CSV import before any dashboard features. The assumption under test: finance teams already have a vendor list somewhere — a sheet, a renewal calendar, AP exports. If true, the product's first job is structuring what exists, not asking for new data. Week-one pilot feedback will tell us if we are wrong. #BuildInPublic
-- **M9 (Thu Sep 17, problem).** A quiet pattern in SaaS spend: the discount that ends. Year one is negotiated hard. Year two renews at list because nobody reopened the conversation — the vendor counts on renewal being easier than renegotiation. Renewal dates in one visible place change which of the two happens. #SaaSManagement
-- **M10 (Fri Sep 18, build).** Two weeks of build-log notes, condensed: the vendor inventory is the product. Alerts, seat reconciliation, spend trends are all views of that inventory. Boring conclusion, useful one. Next on the roadmap: imports that do not need cleaning first. Demo link in the comments. #BuildInPublic
+- **M1 (Tue Oct 6, problem).** Nobody in the company knows the full SaaS vendor list. Finance knows the big contracts. IT knows the tools it provisioned. Each department knows its own. The complete list exists nowhere. That is an inventory problem before it is a tooling problem — and it surfaces at renewal time. #FPandA #SaaSManagement
+- **M2 (Thu Oct 8, build).** Build log: the demo dataset took longer than the dashboard. It had to look like a real company — 24 subscriptions, two analytics tools bought by different departments, Slack seats nobody logs into. Designing the mess taught us more about the workflow than the UI did. Synthetic data, clearly labeled. #BuildInPublic
+- **M3 (Tue Oct 13, problem).** A renewal gotcha worth an hour: notice-period clauses. Many contracts auto-renew unless you notify 60 or 90 days ahead — miss the window and a negotiation becomes a payment. Pull the next two quarters of renewals and check each notice period. That hour is the cheapest audit in finance. #MonthEnd
+- **M4 (Thu Oct 15, build).** Build log: what we cut from the MVP, on purpose. No logins, no integrations, no email digests, no background monitoring. A registry you fill by hand, a waste analysis you run on demand, and a CSV you take to your renewal review. Small surface, honest scope. #BuildInPublic
+- **M5 (Tue Oct 20, problem).** A quiet SaaS waste pattern: the tool a department bought, the department then reorganized, and nobody turned the tool off. The subscription outlives the team. If you have reorganized in the past two years, there is likely at least one of these in your stack. Not expensive — just permanent. #SaaSManagement
+- **M6 (Thu Oct 22, build).** Build log: the waste analysis runs on demand, not in the background. One button, four checks — inactive seats, renewals inside 30 days, trials about to convert, duplicate tools across departments. It costs nothing to run twice, and nothing silently changes while you are mid-review. #BuildInPublic
+- **M7 (Tue Oct 27, problem).** Seat math worth doing quarterly: licenses held versus people in the role. Per-seat pricing drifts when teams change — you pay for the headcount you had, not the headcount you have. Licenses per tool joined against an HR export is one spreadsheet of work, and the gap is the cheapest savings in the stack. #FPandA
+- **M8 (Thu Oct 29, build).** Build log: we shipped CSV export, not import. Finance teams live in spreadsheets — the renewal review happens in a sheet, not a browser. One click takes the open flags, their dollar figures, and the recommended action into Excel. The tool finds the waste; the spreadsheet closes it. #BuildInPublic
+- **M9 (Tue Nov 3, problem).** A quiet pattern in SaaS spend: the discount that ends. Year one is negotiated hard. Year two renews at list because nobody reopened the conversation — the vendor counts on renewal being easier than renegotiation. Renewal dates in one visible place change which of the two happens. #SaaSManagement
+- **M10 (Thu Nov 5, build).** Two weeks of build-log notes, condensed: the vendor inventory is the product. Alerts, seat math, waste percentages are all views of that inventory. Boring conclusion, useful one. If you own a vendor list, I would like to hear how yours works. Demo link in the comments. #BuildInPublic
 
 ## 4. Sub-Reddit engagement protocol (r/FPandA, r/Accounting)
 
@@ -110,7 +110,7 @@ Not part of the A/B sequences. Odd = problem-observation, even = build-log. Each
 
 ## 5. Show HN launch-day protocol
 
-### 5.1 Prep checklist (complete by Mon Sep 7)
+### 5.1 Prep checklist (complete by Fri Sep 18)
 
 - [ ] Title: `Show HN: TrimStack – SaaS spend visibility for finance teams` (confirm naming against launch plan)
 - [ ] Tagline (≤80 chars): "One place for the vendor list, renewal dates, and seat counts."
@@ -150,31 +150,22 @@ Standing daily items, both weeks — no table rows: LinkedIn engagement per §1.
 
 | Date | Channel | Asset | Time (ET) | Owner | Leading indicator to record |
 |---|---|---|---|---|---|
-| Fri Sep 4 | Reddit | Mod-mail both subs with research-post draft | midday | F sends, S drafts | mod replies received |
-| Fri Sep 4 | LinkedIn | Founder profile optimization complete (§1.3) | — | F | checklist complete |
-| Fri Sep 4 | All | Scorecard created (§7) | — | G | scorecard exists |
-| Sat–Sun Sep 5–6 | — | Finalize A1–A5, B1–B5, M1–M10, HN answers | — | S/F | drafts ready |
-| Mon Sep 7 | LinkedIn | A1 (demo story pt 1) | 7:45 AM | F (S drafts) | impressions, replies, profile views, demo visits |
-| Mon Sep 7 | LinkedIn | M1 | 12:30 PM | F | impressions, replies |
-| Tue Sep 8 | HN | Show HN + first-hour protocol (§5) | 8:00 AM | F (G monitors) | points, comments, demo visits |
-| Tue Sep 8 | LinkedIn | B1 (build-in-public pt 1, launch day) | 7:30 AM | F | impressions, replies, demo visits |
-| Tue Sep 8 | LinkedIn | M2 | 4:30 PM | F | impressions, replies |
-| Wed Sep 9 | LinkedIn | A2 | 7:45 AM | F | impressions, replies, profile views, demo visits |
-| Wed Sep 9 | Reddit | Research post r/FPandA — only if mod-approved | 10:00 AM | F | upvotes, replies |
-| Wed Sep 9 | LinkedIn | M3 | 12:30 PM | F | impressions, replies |
-| Thu Sep 10 | LinkedIn | B2 | 7:45 AM | F | impressions, replies, profile views, demo visits |
-| Thu Sep 10 | Reddit | Research post r/Accounting — only if mod-approved | 10:00 AM | F | upvotes, replies |
-| Thu Sep 10 | LinkedIn | M4 | 12:30 PM | F | impressions, replies |
-| Fri Sep 11 | LinkedIn | A3 | 7:45 AM | F | impressions, replies, profile views, demo visits |
-| Fri Sep 11 | LinkedIn | M5 | 12:30 PM | F | impressions, replies |
-| Fri Sep 11 | All | Weekly rollup + slot decisions (§7.3) | 5:00 PM | G | rollup done |
-| Sat–Sun Sep 12–13 | LinkedIn/Reddit | Engagement only, 2–3 comments/day | AM | F | comments made |
-| Mon Sep 14 | LinkedIn | B3 + M6 | 7:45 AM / 12:30 PM | F | impressions, replies, profile views, demo visits |
-| Tue Sep 15 | LinkedIn | A4 + M7 | 7:45 AM / 12:30 PM | F | impressions, replies, profile views, demo visits |
-| Wed Sep 16 | LinkedIn | B4 + M8 | 7:45 AM / 12:30 PM | F | impressions, replies, profile views, demo visits |
-| Thu Sep 17 | LinkedIn | A5 + M9 | 7:45 AM / 12:30 PM | F | impressions, replies, profile views, demo visits |
-| Fri Sep 18 | LinkedIn | B5 + M10 | 7:45 AM / 12:30 PM | F | impressions, replies, profile views, demo visits |
-| Fri Sep 18 | All | Weekly rollup + slot decisions (§7.3) | 5:00 PM | G | rollup + decisions |
+| Mon Sep 21 | Reddit | Channel pre-flight: rules re-check, mod-mail r/FPandA + r/Accounting; verify CTA route logging | all day | F sends, S drafts | mod replies received |
+| Mon Sep 21 | LinkedIn | Founder profile optimization complete (§1.3) | — | F | checklist complete |
+| Mon Sep 21 | All | Scorecard created (§7); finalize launch-week copy, HN answers, transparency note | — | S/F, G | drafts ready, scorecard exists |
+| Tue Sep 22 | LinkedIn | B1 (itch-score method — build in public) | 7:45 AM | F (S drafts) | impressions, replies, profile views, demo visits |
+| Wed Sep 23 | LinkedIn | B2 (research-to-sprint build story) | 7:45 AM | F | impressions, replies, profile views, demo visits |
+| Thu Sep 24 | LinkedIn/Reddit | Launch-eve engagement ONLY — value comments, zero posts (launch plan 09-24 row) | AM | F | comments made |
+| Fri Sep 25 | HN + Reddit + LinkedIn | **LAUNCH DAY: Show HN 08:00–10:00 ET + r/FPandA research post (mod-approved) + founder launch post + company-page echo w/ walkthrough carousel** | 7:45 AM start, 4h reply window | F (G monitors) | points, comments, demo visits |
+| Sat–Sun Sep 26–27 | LinkedIn/Reddit | Engagement only, 2–3 comments/day | AM | F | comments made |
+| Mon Sep 28 | LinkedIn | A1 (demo story pt 1: open the dashboard) | 7:45 AM | F | impressions, replies, profile views, demo visits; scorecard pull 1 (G) |
+| Tue Sep 29 | LinkedIn | A2 (run analysis — waste flags with dollar figures) | 7:45 AM | F | impressions, replies, profile views, demo visits |
+| Wed Sep 30 | LinkedIn | A3 (the 47-unused-seats flag story) | 7:45 AM | F | impressions, replies, profile views, demo visits |
+| Thu Oct 1 | LinkedIn | A4 (resolve — the Recovered metric moment) | 7:45 AM | F | impressions, replies, profile views, demo visits; scorecard pull 2 (G) |
+| Fri Oct 2 | LinkedIn | A5 (honest close — demo-data disclosure + CTA) | 7:45 AM | F | impressions, replies, profile views, demo visits; weekly rollup + decisions |
+| Fri Oct 2 | GitHub | Launch retro + 2-week scorecard v1 published to repo (build-in-public artifact) | PM | G | retro published |
+
+One-post-per-day rule (launch plan §7 guardrail): sequence posts own every weekday slot — the M1–M10 micro-sequence does NOT run during launch weeks. It moves to the post-launch pool (sprint 4): 2–3 posts/week on Tue/Thu, problem/build alternating, starting Tue Oct 6. Do not double-post to dodge this.
 
 ## 7. Measurement
 
@@ -185,14 +176,14 @@ One row per asset per day. Countable numbers only — no sentiment scores, no "a
 `Date | Channel | Asset | Impressions | Replies/Comments | Profile views | Followers | Demo visits | Notes`
 
 - LinkedIn: impressions (post analytics), replies (count), profile views, follower count, demo visits (UTM link if the demo supports it; otherwise daily total, logged unattributed — honest about it).
-- HN (Sep 8): points, comment count, demo visits.
+- HN (Sep 25): points, comment count, demo visits.
 - Reddit: comment karma, research-thread replies.
 - Ratios (replies/impressions, visits/impressions) computed weekly only — no daily ratio-chasing.
 
 ### 7.2 Daily logging routine — 15 minutes, 8:50 PM ET, owner G (fallback F)
 
 1. (5 min) LinkedIn: today's posts → impressions, replies; profile views; follower count.
-2. (3 min) Demo visits: real count from {{analytics source — confirm which before Sep 4}}; log. No estimates.
+2. (3 min) Demo visits: real count from the KPI framework's dashboard-opens proxy (distinct client keys calling /api/dashboard/summary — see kpi-framework.md); log. No estimates.
 3. (3 min) HN day: points, comments. Reddit daily: karma, research-thread replies.
 4. (2 min) Notes: one line on anything off-pattern (e.g., "M3 replies doubled — notice-period hook").
 5. (2 min) Flag for tomorrow: any thread with an unanswered reply older than 24 hours gets closed out first.

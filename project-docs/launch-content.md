@@ -55,9 +55,9 @@ Happy to walk through the scoring rubric and the spec in the comments.
 
 ---
 
-## 2. LinkedIn Sequence A — Demo Story (Launch Week: Mon Sep 21 – Fri Sep 25)
+## 2. LinkedIn Sequence A — Demo Story (Post-Launch Week: Mon Sep 28 – Fri Oct 2)
 
-### A1. Mon Sep 21 — The problem: unused seats
+### A1. Mon Sep 28 — The problem: unused seats
 
 **Hook:** 460 Slack seats provisioned. 201 in use.
 
@@ -70,7 +70,7 @@ That gap is why we built TrimStack: a subscription registry that runs the usage 
 
 **CTA:** Open the dashboard: [link]
 
-### A2. Tue Sep 22 — The waste patterns
+### A2. Tue Sep 29 — The waste patterns
 
 **Hook:** SaaS waste is not one problem. In our demo registry, it shows up as four.
 
@@ -86,7 +86,7 @@ In the seeded demo company, one run of the analysis surfaces all four. That is t
 
 **CTA:** Open the dashboard and run the analysis: [link]
 
-### A3. Wed Sep 23 — The recovery loop
+### A3. Wed Sep 30 — The recovery loop
 
 **Hook:** "Potential savings" is a maybe. "Recovered" is a result.
 
@@ -99,7 +99,7 @@ Decisions stay with a person. The registry keeps the record. Potential becomes R
 
 **CTA:** Open the dashboard: [link]
 
-### A4. Thu Sep 24 — The CSV and the finance workflow
+### A4. Thu Oct 1 — The CSV and the finance workflow
 
 **Hook:** Finance work ends in a spreadsheet. We built for that.
 
@@ -112,7 +112,7 @@ TrimStack stays the subscription registry. Your spreadsheet stays the system of 
 
 **CTA:** Open the dashboard, then export the list: [link]
 
-### A5. Fri Sep 25 — Launch week recap + the honesty note
+### A5. Fri Oct 2 — Launch recap + the honesty note
 
 **Hook:** One week live. The honest recap.
 
@@ -130,9 +130,9 @@ Next week: how this got built — the research method, the spec, and what we cut
 
 ---
 
-## 3. LinkedIn Sequence B — Build in Public (Mon Sep 28 – Fri Oct 2)
+## 3. LinkedIn Sequence B — Build in Public (B1 Tue Sep 22, B2 Wed Sep 23 pre-launch; B3–B5 post-launch pool — Sep 24 is engagement-only, Oct 2 belongs to A5 + retro)
 
-### B1. Mon Sep 28 — The itch-score method
+### B1. Tue Sep 22 — The itch-score method
 
 **Hook:** We didn't start with an idea. We started with an itch score.
 
@@ -145,7 +145,7 @@ The method exists to kill ideas early and cheaply. A problem that scores low on 
 
 **CTA:** The method doc is in the public repo: [repo URL]
 
-### B2. Tue Sep 29 — From spec to pipeline
+### B2. Wed Sep 23 — From spec to pipeline
 
 **Hook:** The spec became 27 tasks. None of them closed without evidence.
 
@@ -156,7 +156,7 @@ No evidence, no close. That rule is the difference between a three-week MVP and 
 
 **CTA:** The pipeline and the evidence gates are public: [repo URL]
 
-### B3. Wed Sep 30 — The QA discipline
+### B3. Post-launch pool (from Oct 6) — The QA discipline
 
 **Hook:** The least glamorous part of the build: making sure the demo tells the truth.
 
@@ -167,7 +167,7 @@ When a whole launch rests on one demo story, a wrong demo is a wrong launch. So 
 
 **CTA:** The test setup is public: [repo URL]
 
-### B4. Thu Oct 1 — What we cut
+### B4. Post-launch pool (from Oct 6) — What we cut
 
 **Hook:** The most useful page in our spec was the out-of-scope list.
 
@@ -180,7 +180,7 @@ Every cut bought focus for the loop that works: registry, analysis, resolve, exp
 
 **CTA:** The spec, including the cuts, is public: [repo URL]
 
-### B5. Fri Oct 2 — The process, end to end
+### B5. Post-launch pool (from Oct 6) — The process, end to end
 
 **Hook:** Two weeks ago, this was four numbers on a page.
 
@@ -250,22 +250,22 @@ One-line form for captions and footers: "Figures shown are seeded demo data (24-
 
 | # | Asset | Date | Channel | Owner | Notes |
 |---|-------|------|---------|-------|-------|
-| 1 | Show HN post (1a) | Mon Sep 21 | Hacker News — Show HN | [per launch plan] | Morning post; plan to answer comments for two hours |
-| 2 | r/FPandA research post (1b) | Mon Sep 21 | Reddit — r/FPandA | [per launch plan] | Research framing; method first, product second; stagger vs Show HN |
-| 3 | A1 — unused seats | Mon Sep 21 | LinkedIn | [per launch plan] | Attach 60-sec video (4c) if edited in time |
-| 4 | A2 — four waste patterns | Tue Sep 22 | LinkedIn | [per launch plan] | Optional companion: carousel (4b) |
-| 5 | A3 — recovery loop | Wed Sep 23 | LinkedIn | [per launch plan] | |
-| 6 | A4 — CSV workflow | Thu Sep 24 | LinkedIn | [per launch plan] | Link narrative (4a) in first comment |
-| 7 | A5 — recap + honesty note | Fri Sep 25 | LinkedIn | [per launch plan] | Includes transparency note (5) |
-| 8 | B1 — itch-score method | Mon Sep 28 | LinkedIn | [per launch plan] | |
-| 9 | B2 — spec to pipeline | Tue Sep 29 | LinkedIn | [per launch plan] | |
-| 10 | B3 — QA discipline | Wed Sep 30 | LinkedIn | [per launch plan] | |
-| 11 | B4 — what was cut | Thu Oct 1 | LinkedIn | [per launch plan] | Verify cut list vs project-specs first |
-| 12 | B5 — process recap | Fri Oct 2 | LinkedIn | [per launch plan] | Fill both bracketed slots from launch-week feedback |
-| 13 | Demo-story narrative (4a) | Mon Sep 21 | Landing page — demo-story section | [per launch plan] | Evergreen; also a comment-link asset |
-| 14 | Carousel outline (4b) | Tue Sep 22 | LinkedIn carousel | [per launch plan] | Text-only outline; needs design pass |
-| 15 | 60-sec video script (4c) | Mon Sep 21 | Launch-day video / embed | [per launch plan] | Screen-record against the seeded demo |
-| 16 | Transparency note (5) | Mon Sep 21 onward | All channels — footer / pinned comment | [per launch plan] | Reuse verbatim |
+| 1 | Show HN post (1a) | Fri Sep 25 | Hacker News — Show HN | [per launch plan] | Morning post; plan to answer comments for two hours |
+| 2 | r/FPandA research post (1b) | Fri Sep 25 | Reddit — r/FPandA | [per launch plan] | Research framing; method first, product second; stagger vs Show HN |
+| 3 | A1 — unused seats | Mon Sep 28 | LinkedIn | [per launch plan] | Attach 60-sec video (4c) if edited in time |
+| 4 | A2 — four waste patterns | Tue Sep 29 | LinkedIn | [per launch plan] | Optional companion: carousel (4b) |
+| 5 | A3 — recovery loop | Wed Sep 30 | LinkedIn | [per launch plan] | |
+| 6 | A4 — CSV workflow | Thu Oct 1 | LinkedIn | [per launch plan] | Link narrative (4a) in first comment |
+| 7 | A5 — recap + honesty note | Fri Oct 2 | LinkedIn | [per launch plan] | Includes transparency note (5) |
+| 8 | B1 — itch-score method | Tue Sep 22 | LinkedIn | [per launch plan] | |
+| 9 | B2 — spec to pipeline | Wed Sep 23 | LinkedIn | [per launch plan] | |
+| 10 | B3 — QA discipline | Post-launch pool (Oct 6+) | LinkedIn | [reconciled: launch plan slots only B1+B2 pre-launch; Sep 24 is engagement-only] |
+| 11 | B4 — what was cut | Post-launch pool (Oct 6+) | LinkedIn | [reconciled] | Verify cut list vs project-specs first |
+| 12 | B5 — process recap | Post-launch pool (Oct 6+) | LinkedIn | [reconciled] | Fill both bracketed slots from launch-week feedback |
+| 13 | Demo-story narrative (4a) | Fri Sep 25 (launch day) | Landing page — demo-story section | [per launch plan] | Evergreen; also a comment-link asset |
+| 14 | Carousel outline (4b) | Fri Sep 25 (launch-day carousel) | LinkedIn carousel | [per launch plan] | Text-only outline; needs design pass |
+| 15 | 60-sec video script (4c) | Fri Sep 25 | Launch-day video / embed | [per launch plan] | Screen-record against the seeded demo |
+| 16 | Transparency note (5) | Fri Sep 25 onward | All channels — footer / pinned comment | [per launch plan] | Reuse verbatim |
 
 ## Pre-flight checklist (growth team, before scheduling)
 
